@@ -4,15 +4,14 @@ class Pokemon
 
   attr_accessor :id, :name, :type, :db
 
-  def initialize(id:, name:, type:, db:)
+  def initialize(id:, name:, type:, db:, hp: nil)
    @id = id
    @name = name
    @type = type
    @db = db
+   @hp = hp
 
   end
-
-
 
   def self.save(name, type, db)
     sql = <<-SQL
@@ -35,4 +34,9 @@ class Pokemon
     poke = db.execute(sql, id)
     pokemon = Pokemon.new(id: poke[0][0], name: poke[0][1], type: poke[0][2], db: db)
     end
+
+
+
+
+
   end
