@@ -11,4 +11,5 @@ require_relative "sql_runner"
 @db = SQLite3::Database.new('../pokemon.db')
 @db.execute("DROP TABLE IF EXISTS pokemon;")
 @sql_runner = SQLRunner.new(@db)
+# binding.pry
 @sql_runner.execute_schema_migration_sql
